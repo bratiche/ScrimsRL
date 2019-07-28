@@ -1,10 +1,13 @@
-// change nickname
-    bot.guilds.first().members.find(member => member.user.username === 'Eze').setNickname('huehue');
-
-// add role
-    message.member.addRole(message.member.guild.roles.find(role => role.name === 'Rolando'));
-
 # ScrimsRL
+
+## Compile
+
+`tsc -p tsconfig.json`
+
+## Run
+
+* `cd dist`
+* `node .`
 
 # Roles
 
