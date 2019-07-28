@@ -45,7 +45,7 @@ export default class InfoCommand implements IBotCommand {
             for (let i = 0; i < players.length; i++) {
                 const player = players[i];
 
-                await this.mmrFetchMethod.getPlayerMMR(player.platform, player.id).then(playerMMR => {
+                await this.mmrFetchMethod.getPlayerMMR(player.platform, player.id, 3).then(playerMMR => {
                     let name = player.discordUserID === 'undefined' ? player.name : `<@${player.discordUserID}>`;
                     playersField += `${name} ${this.getRankEmoji(playerMMR)}\n`;
 

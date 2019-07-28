@@ -9,5 +9,5 @@ export interface IBotCommand {
 }
 
 export interface IMMRFetchMethod {
-    getPlayerMMR(platform: string, id: string): Promise<number>;
+    getPlayerMMR(platform: string, id: string, tries: number): Promise<number>;
 }

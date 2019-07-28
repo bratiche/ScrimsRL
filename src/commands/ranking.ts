@@ -89,7 +89,7 @@ export default class RankingCommand implements IBotCommand {
 
             if (platform.toLowerCase() === "pc") platform = "steam";
 
-            await this.mmrFetchMethod.getPlayerMMR(platform, id).then(playerMMR => {
+            await this.mmrFetchMethod.getPlayerMMR(platform, id, 5).then(playerMMR => {
                 if (playerMMR === 0) playerCount--;
                 else teamMMR += playerMMR;
             }).catch(exeption => {

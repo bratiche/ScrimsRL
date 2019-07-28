@@ -4,9 +4,11 @@ import fetch from "node-fetch";
 export default class TRNScrapper implements IMMRFetchMethod {
     baseURL = "https://rocketleague.tracker.network/profile/";
 
-    async getPlayerMMR(platform: string, id: string): Promise<number> {
+    async getPlayerMMR(platform: string, id: string, tries: number): Promise<number> {
         let mmr = 0;
         let url = this.baseURL + platform + '/' + id;
+
+        if (tries === 0) return 0;
 
         // Scrap rocketleague.tracker.network because we dont have access to psyonix API :(
         await fetch(url).then(response => {
@@ -18,7 +20,7 @@ export default class TRNScrapper implements IMMRFetchMethod {
 
             // Error if there is no title
             if (title.length === 0) {
-                console.log('player not found: ' + url);
+                console.log(`player not found (${tries-1} tries left): ` + url);
                 return null;
             } else {
                 // Get player mmr
@@ -37,6 +39,6 @@ export default class TRNScrapper implements IMMRFetchMethod {
             console.log('Failed to fetch page: ', exception);
         });
 
-        return mmr;
+        return mmr === 0 ? this.getPlayerMMR(platform, id, tries - 1) : mmr;
     }
 }
