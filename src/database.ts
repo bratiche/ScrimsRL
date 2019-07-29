@@ -77,6 +77,7 @@ function updatePlayer(player: Player) {
 
 }
 
+// UNUSED
 export function getPlayer(playerName?: string, discordUserID?: string): Player | null {
     let player: Player | null = null;
 
@@ -162,8 +163,8 @@ export function getTeams(callback: (teams: Team[]) => void): void {
 
         for (let i = 0; i < rows.length; i++) {
             const team: Team = {
-                name: rows[0].teamName,
-                tag: rows[0].teamTag,
+                name: rows[i].teamName,
+                tag: rows[i].teamTag,
             };
             teams.push(team);
         }

@@ -62,7 +62,6 @@ bot.on("ready", () => {
 });
 
 function updateRanks(bot: Discord.Client) {
-    console.log('Updating ranks...');
     new RankingCommand().runCommand([], null, bot);
 }
 
