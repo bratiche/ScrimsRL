@@ -40,6 +40,8 @@ export default class UpdateCommand implements IBotCommand {
 
                     if (platform.toLowerCase() === 'pc') platform = 'steam';
 
+                    else if (platform.toLowerCase() === 'ps4') platform = 'psn';
+
                     if (discordUserID) {
                         if (discordUserID.includes("!")) {
                             discordUserID = discordUserID.split("!")[1].split(">")[0];

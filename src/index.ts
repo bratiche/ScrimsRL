@@ -55,7 +55,7 @@ bot.on("ready", () => {
     Database.initDB();
 
     // Set ínterval to update ranks
-    //updateRanks(bot);
+    updateRanks(bot);
     setInterval(() => {
         updateRanks(bot);
     }, ConfigFile.config.rankingUpdateInterval);
